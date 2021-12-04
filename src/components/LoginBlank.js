@@ -1,13 +1,12 @@
 import React from "react"
 import { login } from "../reducers/userReducer"
 import { connect } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Navigate } from "react-router-dom"
 
 const LoginBlank = props => {
   let nav = useNavigate()
   if (props.user.username && props.user.username !== "") {
-    nav("/")
-    return null
+    return <Navigate to='/' />
   }
 
   const handleLogin = event => {

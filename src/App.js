@@ -9,11 +9,15 @@ import BlogList from "./components/BlogsList"
 import Blog from "./components/Blog"
 import LoginBlank from "./components/LoginBlank"
 import { initializeBlogs } from "./reducers/blogsReducer"
+import { checkUser } from "./reducers/userReducer"
 
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(initializeBlogs())
+  }, [dispatch])
+  useEffect(() => {
+    dispatch(checkUser())
   }, [dispatch])
   return (
     <div>

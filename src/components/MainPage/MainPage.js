@@ -6,8 +6,8 @@ const MainPage = props => {
       <h1>Bloggly</h1>
       <h2>A brand new blog project!</h2>
       <p>
-        Modern and comfortable website for browsing blogs by other users or a
-        good place for become a creator!
+        Modern and convinient website for browsing blogs by other users or a
+        good place to become a creator!
       </p>
     </div>
   )
