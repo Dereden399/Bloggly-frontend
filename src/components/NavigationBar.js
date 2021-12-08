@@ -7,7 +7,7 @@ const NavigationBar = props => {
   return (
     <div>
       <Link to='/blogs'>Browse blogs</Link> <Link to='/'>Main page</Link>{" "}
-      <UserLoginLogout />
+      <Link to='/add-blog'>Create blog</Link> <UserLoginLogout />
     </div>
   )
 }

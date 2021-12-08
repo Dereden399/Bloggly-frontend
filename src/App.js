@@ -8,6 +8,8 @@ import MainPage from "./components/MainPage/MainPage"
 import BlogList from "./components/BlogsList"
 import Blog from "./components/Blog"
 import LoginBlank from "./components/LoginBlank"
+import BlogForm from "./components/BlogForm"
+
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
 
@@ -27,6 +29,7 @@ const App = () => {
         <Route path='/blogs/:id' element={<Blog />} />
         <Route path='/blogs' element={<BlogList />} />
         <Route path='/login' element={<LoginBlank />} />
+        <Route path='/add-blog' element={<BlogForm />} />
         <Route path='/' element={<MainPage />} />
         <Route path='*' element={<div>Nothing up here... Yet</div>} />
       </Routes>
