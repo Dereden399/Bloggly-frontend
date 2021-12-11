@@ -1,5 +1,6 @@
 import loginService from "../Services/login"
 import { setToken } from "../Services/blogService"
+import { makeNotification } from "./notificationReducer"
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -14,17 +15,22 @@ const reducer = (state = {}, action) => {
 
 export const login = cred => {
   return async dispatch => {
-    const loginResponse = await loginService.login(cred)
-    const user = {
-      username: loginResponse.username,
-      userId: loginResponse.id,
+    try {
+      const loginResponse = await loginService.login(cred)
+      const user = {
+        username: loginResponse.username,
+        userId: loginResponse.id,
+      }
+      dispatch({
+        type: "SET_USER",
+        data: user,
+      })
+      setToken(loginResponse.token)
+      window.localStorage.setItem("loggedUser", JSON.stringify(loginResponse))
+      dispatch(makeNotification("Log in successfully", "success", 3))
+    } catch (error) {
+      dispatch(makeNotification(error.response.data.error, "error", 5))
     }
-    dispatch({
-      type: "SET_USER",
-      data: user,
-    })
-    setToken(loginResponse.token)
-    window.localStorage.setItem("loggedUser", JSON.stringify(loginResponse))
   }
 }
 
@@ -52,6 +58,7 @@ export const logout = () => {
     setToken("")
     window.localStorage.removeItem("loggedUser")
     dispatch({ type: "REMOVE_USER" })
+    dispatch(makeNotification("Log out successfully", "success", 2))
   }
 }
 

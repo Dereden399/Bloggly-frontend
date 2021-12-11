@@ -9,6 +9,7 @@ import BlogList from "./components/BlogsList"
 import Blog from "./components/Blog"
 import LoginBlank from "./components/LoginBlank"
 import BlogForm from "./components/BlogForm"
+import Notification from "./components/Notification"
 
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
@@ -25,6 +26,7 @@ const App = () => {
     <div>
       <NavigationBar />
       <hr />
+      <Notification />
       <Routes>
         <Route path='/blogs/:id' element={<Blog />} />
         <Route path='/blogs' element={<BlogList />} />

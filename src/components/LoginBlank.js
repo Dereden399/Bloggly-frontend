@@ -3,26 +3,22 @@ import { login } from "../reducers/userReducer"
 import { connect } from "react-redux"
 import { useNavigate, Navigate } from "react-router-dom"
 
-const LoginBlank = props => {
+const LoginBlank = ({ user, login }) => {
   let nav = useNavigate()
-  if (props.user.username && props.user.username !== "") {
+  if (user.username && user.username !== "") {
     return <Navigate to='/' />
   }
 
   const handleLogin = event => {
-    try {
-      event.preventDefault()
-      const cred = {
-        username: event.target.username.value,
-        password: event.target.password.value,
-      }
-      event.target.username.value = ""
-      event.target.password.value = ""
-      props.login(cred)
-      nav("/")
-    } catch (error) {
-      console.log(error)
+    event.preventDefault()
+    const cred = {
+      username: event.target.username.value,
+      password: event.target.password.value,
     }
+    event.target.username.value = ""
+    event.target.password.value = ""
+    login(cred)
+    nav("/")
   }
 
   return (
