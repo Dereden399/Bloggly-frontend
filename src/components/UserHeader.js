@@ -18,9 +18,19 @@ const UserLoginLogout = props => {
     }
   }
   return (
-    <button onClick={handleClick}>
-      {!props.user.username ? "Log in" : "Log out"}
-    </button>
+    <>
+      {props.user.username && (
+        <>
+          {props.user.username}{" "}
+          <button onClick={() => nav(`/users/${props.user.userId}`)}>
+            Your profile
+          </button>
+        </>
+      )}
+      <button onClick={handleClick}>
+        {!props.user.username ? "Log in" : "Log out"}
+      </button>
+    </>
   )
 }
 

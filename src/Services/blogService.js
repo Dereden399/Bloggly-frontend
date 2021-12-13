@@ -32,5 +32,5 @@ const modify = async toModify => {
   )
   return response.data
 }
-
-export default { setToken, getAll, addBlog, modify }
+const exported = { setToken, getAll, addBlog, modify }
+export default exported

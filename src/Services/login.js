@@ -7,4 +7,6 @@ const login = async cred => {
   return response.data
 }
 
-export default { login }
+const exported = { login }
+
+export default exported

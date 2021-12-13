@@ -6,7 +6,7 @@ const BlogList = props => {
   return (
     <div>
       {props.blogs.map(blog => (
-        <p>
+        <p key={blog.id}>
           <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
         </p>
       ))}

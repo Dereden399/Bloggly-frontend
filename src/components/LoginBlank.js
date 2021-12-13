@@ -1,10 +1,9 @@
 import React from "react"
 import { login } from "../reducers/userReducer"
 import { connect } from "react-redux"
-import { useNavigate, Navigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 
 const LoginBlank = ({ user, login }) => {
-  let nav = useNavigate()
   if (user.username && user.username !== "") {
     return <Navigate to='/' />
   }
@@ -18,7 +17,9 @@ const LoginBlank = ({ user, login }) => {
     event.target.username.value = ""
     event.target.password.value = ""
     login(cred)
-    nav("/")
+    if (user?.username !== "") {
+      return <Navigate to='/' />
+    }
   }
 
   return (

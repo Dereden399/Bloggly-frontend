@@ -37,7 +37,6 @@ export const login = cred => {
 export const checkUser = () => {
   return async dispatch => {
     const userJSON = window.localStorage.getItem("loggedUser")
-    console.log(userJSON)
     if (userJSON) {
       const user = JSON.parse(userJSON)
       const userCred = {

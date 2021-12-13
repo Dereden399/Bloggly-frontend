@@ -1,4 +1,5 @@
 import blogService from "../Services/blogService"
+import { makeNotification } from "./notificationReducer"
 
 const reducer = (state = [], action) => {
   switch (action.type) {
@@ -26,22 +27,32 @@ export const initializeBlogs = () => {
 
 export const createBlog = blog => {
   return async dispatch => {
-    const addedBlog = await blogService.addBlog(blog)
-    dispatch({
-      type: "ADD_BLOG",
-      data: addedBlog,
-    })
+    try {
+      const addedBlog = await blogService.addBlog(blog)
+      dispatch({
+        type: "ADD_BLOG",
+        data: addedBlog,
+      })
+      dispatch(makeNotification("Blog created successfully", "success", 2))
+    } catch (error) {
+      dispatch(makeNotification(error.response.data.error, "error", 5))
+    }
   }
 }
 
 export const vote = blog => {
   return async dispatch => {
-    const likedBlog = { ...blog, likes: blog.likes + 1 }
-    await blogService.modify(likedBlog)
-    dispatch({
-      type: "MODIFY_BLOG",
-      data: likedBlog,
-    })
+    try {
+      const likedBlog = { ...blog, likes: blog.likes + 1 }
+      await blogService.modify(likedBlog)
+      dispatch({
+        type: "MODIFY_BLOG",
+        data: likedBlog,
+      })
+      dispatch(makeNotification(`Voted for blog '${blog.title}'`, "success", 2))
+    } catch (error) {
+      dispatch(makeNotification("Log in to like blogs", "error", 5))
+    }
   }
 }
 

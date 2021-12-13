@@ -42,7 +42,7 @@ const Blog = props => {
       <h2>{blog.title}</h2> by <b>{blog.author}</b> <br />
       Has {blog.likes} like(s). <button onClick={like}>like</button> <br />
       You can read more on{" "}
-      <a href={blog.url} target='_blank'>
+      <a href={blog.url} target='_blank' rel='noopener noreferrer'>
         {blog.url}
       </a>{" "}
       <br />
