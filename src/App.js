@@ -13,6 +13,7 @@ import Notification from "./components/Notification"
 import UserHeader from "./components/UserHeader"
 import UserPage from "./components/UserPage"
 import UsersList from "./components/AllUsersList"
+import RegisterBlank from "./components/RegisterBlank"
 
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
@@ -38,6 +39,7 @@ const App = () => {
         <Route path='/add-blog' element={<BlogForm />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='/users' element={<UsersList />} />
+        <Route path='/register' element={<RegisterBlank />} />
         <Route path='/' element={<MainPage />} />
         <Route path='*' element={<div>Nothing up here... Yet</div>} />
       </Routes>
