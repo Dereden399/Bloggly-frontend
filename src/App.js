@@ -18,6 +18,8 @@ import RegisterBlank from "./components/RegisterBlank"
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
 
+import mainIcon from "./icons/Bloggly.svg"
+
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -28,8 +30,11 @@ const App = () => {
   }, [dispatch])
   return (
     <div>
-      <NavigationBar />
-      <UserHeader />
+      <div>
+        <NavigationBar />
+        <img src={mainIcon} height='100' />
+        <UserHeader />
+      </div>
       <hr />
       <Notification />
       <Routes>

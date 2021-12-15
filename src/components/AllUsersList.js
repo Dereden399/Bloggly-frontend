@@ -8,13 +8,20 @@ const FilteredList = ({ filter, users }) => {
   )
   if (filteredUsers.length === 0) return <h3>No such users here...</h3>
   return (
-    <ul>
+    <table>
+      <tr>
+        <td>User</td>
+        <td>Blogs</td>
+      </tr>
       {filteredUsers.map(user => (
-        <li key={user.id}>
-          <Link to={`/users/${user.id}`}>{user.username}</Link>
-        </li>
+        <tr>
+          <td>
+            <Link to={`/users/${user.id}`}>{user.username}</Link>
+          </td>
+          <td>{user.blogs.length}</td>
+        </tr>
       ))}
-    </ul>
+    </table>
   )
 }
 
