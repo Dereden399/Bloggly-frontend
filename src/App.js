@@ -1,24 +1,22 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { Routes, Route } from "react-router-dom"
 
 import Footer from "./components/Footer"
 import NavigationBar from "./components/NavigationBar"
+import DropdownNavbar from "./components/DropdownNavbar"
 import MainPage from "./components/MainPage/MainPage"
 import BlogList from "./components/BlogsList"
 import Blog from "./components/Blog"
 import LoginBlank from "./components/LoginBlank"
 import BlogForm from "./components/BlogForm"
 import Notification from "./components/Notification"
-import UserHeader from "./components/UserHeader"
 import UserPage from "./components/UserPage"
 import UsersList from "./components/AllUsersList"
 import RegisterBlank from "./components/RegisterBlank"
 
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
-
-import mainIcon from "./icons/Bloggly.svg"
 
 const App = () => {
   const dispatch = useDispatch()
@@ -28,16 +26,16 @@ const App = () => {
   useEffect(() => {
     dispatch(checkUser())
   }, [dispatch])
+
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <>
-      <div className='bg-secondary-500 relative flex items-center justify-center px-5 h-14'>
-        <img src={mainIcon} className='h-full' />
-        <div className='absolute inset-0 h-full flex items-center justify-between px-5'>
-          <NavigationBar />
-          <UserHeader />
-        </div>
-      </div>
-      <hr />
+      <DropdownNavbar isOpen={isOpen} toggle={toggle} />
+      <NavigationBar toggle={toggle} />
       <Notification />
       <Routes>
         <Route path='/blogs/:id' element={<Blog />} />

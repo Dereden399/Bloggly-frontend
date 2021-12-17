@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn-navbar {
+  @apply bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1;
+}

@@ -29,17 +29,14 @@ const UserLoginLogout = props => {
           <div>
             <button
               onClick={() => nav(`/users/${props.user.userId}`)}
-              className='bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1'
+              className='btn-navbar'
             >
               Your profile
             </button>
           </div>
         )}
         <div>
-          <button
-            onClick={handleClick}
-            className='bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1'
-          >
+          <button onClick={handleClick} className='btn-navbar'>
             {!props.user.username ? "Log in" : "Log out"}
           </button>
         </div>

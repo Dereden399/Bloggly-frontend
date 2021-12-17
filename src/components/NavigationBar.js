@@ -1,25 +1,17 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import React from "react"
 
 import menuIcon from "../icons/utils/menuIcon.svg"
+import mainIcon from "../icons/Bloggly.svg"
+import UserHeader from "./UserHeader"
 
-const NavigationBar = props => {
-  const [isOpen, setIsOpen] = useState(false)
+const NavigationBar = ({ toggle }) => {
   return (
-    <nav>
-      {isOpen && (
-        <div>
-          <Link to='/blogs'>Browse blogs</Link> <Link to='/'>Main page</Link>{" "}
-          <Link to='/users'>All users</Link>{" "}
-          <Link to='/add-blog'>Create blog</Link>{" "}
-          <Link to='/register'>Register</Link>
-        </div>
-      )}
-      <img
-        src={menuIcon}
-        onClick={event => setIsOpen(!isOpen)}
-        className='h-12'
-      />
+    <nav className='bg-secondary-500 flex items-center justify-between px-5 h-14'>
+      <div className='h-full flex flex-row items-center gap-x-1'>
+        <img src={menuIcon} onClick={toggle} className='h-full' />
+        <img src={mainIcon} className='h-full' />
+      </div>
+      <UserHeader />
     </nav>
   )
 }
