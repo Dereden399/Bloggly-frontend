@@ -18,19 +18,33 @@ const UserLoginLogout = props => {
     }
   }
   return (
-    <>
+    <div className='flex flex-row items-center gap-x-2'>
       {props.user.username && (
-        <>
-          {props.user.username}{" "}
-          <button onClick={() => nav(`/users/${props.user.userId}`)}>
-            Your profile
-          </button>
-        </>
+        <div>
+          <b>{props.user.username}</b>
+        </div>
       )}
-      <button onClick={handleClick}>
-        {!props.user.username ? "Log in" : "Log out"}
-      </button>
-    </>
+      <div className='flex flex-col gap-y-1'>
+        {props.user.username && (
+          <div>
+            <button
+              onClick={() => nav(`/users/${props.user.userId}`)}
+              className='bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1'
+            >
+              Your profile
+            </button>
+          </div>
+        )}
+        <div>
+          <button
+            onClick={handleClick}
+            className='bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1'
+          >
+            {!props.user.username ? "Log in" : "Log out"}
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
 

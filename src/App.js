@@ -29,11 +29,13 @@ const App = () => {
     dispatch(checkUser())
   }, [dispatch])
   return (
-    <div>
-      <div>
-        <NavigationBar />
-        <img src={mainIcon} height='100' />
-        <UserHeader />
+    <>
+      <div className='bg-secondary-500 relative flex items-center justify-center px-5 h-14'>
+        <img src={mainIcon} className='h-full' />
+        <div className='absolute inset-0 h-full flex items-center justify-between px-5'>
+          <NavigationBar />
+          <UserHeader />
+        </div>
       </div>
       <hr />
       <Notification />
@@ -50,7 +52,7 @@ const App = () => {
       </Routes>
       <hr />
       <Footer />
-    </div>
+    </>
   )
 }
 

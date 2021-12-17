@@ -6,7 +6,7 @@ import menuIcon from "../icons/utils/menuIcon.svg"
 const NavigationBar = props => {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <div>
+    <nav>
       {isOpen && (
         <div>
           <Link to='/blogs'>Browse blogs</Link> <Link to='/'>Main page</Link>{" "}
@@ -15,8 +15,12 @@ const NavigationBar = props => {
           <Link to='/register'>Register</Link>
         </div>
       )}
-      <img src={menuIcon} onClick={event => setIsOpen(!isOpen)} />
-    </div>
+      <img
+        src={menuIcon}
+        onClick={event => setIsOpen(!isOpen)}
+        className='h-12'
+      />
+    </nav>
   )
 }
 
