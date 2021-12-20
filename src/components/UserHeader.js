@@ -21,7 +21,7 @@ const UserLoginLogout = props => {
     <div className='flex flex-row items-center gap-x-2'>
       {props.user.username && (
         <div>
-          <b>{props.user.username}</b>
+          <b className='text-primaryWhite'>{props.user.username}</b>
         </div>
       )}
       <div className='flex flex-col gap-y-1'>

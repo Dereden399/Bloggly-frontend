@@ -18,6 +18,10 @@ module.exports = {
         primaryWhite: "#fff7f2",
         secondaryWhite: "#e5dbce",
       },
+      fontFamily: {
+        pacifico: ["Pacifico"],
+        main: ["Source Sans Pro"],
+      },
     },
   },
   plugins: [],
