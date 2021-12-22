@@ -3,6 +3,8 @@ import { registerNewUser } from "../reducers/userReducer"
 import { useNavigate } from "react-router"
 import { useDispatch } from "react-redux"
 
+import bg from "../images/register.jpg"
+
 const LoginBlank = props => {
   const dispatch = useDispatch()
   const nav = useNavigate()
@@ -21,19 +23,33 @@ const LoginBlank = props => {
   }
 
   return (
-    <div>
-      Register a new user:
-      <form onSubmit={submitHandler}>
-        <div>
-          Username:
-          <input placeholder='Username' />
-        </div>
-        <div>
-          Password:
-          <input placeholder='Password' type='password' />
-        </div>
-        <button type='submit'>Register</button>
-      </form>
+    <div className='flex justify-center items-center p-10 bg-laptop bg-cover bg-no-repeat bg-right-top min-h-[85vh]'>
+      <div className='flex flex-col bg-slate-100 rounded-3xl p-10 h-full items-center gap-y-10 font-main text-2xl'>
+        <p className='font-bold text-black italic'>Register a new user:</p>
+        <form
+          onSubmit={submitHandler}
+          className='flex flex-col items-center gap-y-5 font-main'
+        >
+          <div className='grid place-items-center'>
+            <p>Username:</p>
+            <input placeholder='Username' className='rounded-2xl px-5' />
+          </div>
+          <div className='grid place-items-center'>
+            <p>Password:</p>
+            <input
+              placeholder='Password'
+              type='password'
+              className='rounded-2xl px-5'
+            />
+          </div>
+          <button
+            type='submit'
+            className='bg-primary rounded-full py-3 px-5 hover:bg-secondary-100 transition duration-300 ease-in-out hover:scale-110 hover:rounded-3xl'
+          >
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

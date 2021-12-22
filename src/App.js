@@ -26,6 +26,9 @@ const App = () => {
   useEffect(() => {
     dispatch(checkUser())
   }, [dispatch])
+  useEffect(() => {
+    document.body.classList.add("bg-primaryWhite")
+  }, [])
 
   const [isOpen, setIsOpen] = useState(false)
   const toggle = () => {
@@ -48,7 +51,6 @@ const App = () => {
         <Route path='/' element={<MainPage />} />
         <Route path='*' element={<div>Nothing up here... Yet</div>} />
       </Routes>
-      <hr />
       <Footer />
     </>
   )

@@ -23,18 +23,33 @@ const LoginBlank = ({ user, login }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <div>
-          username:
-          <input type='text' name='username' />
-        </div>
-        <div>
-          password:
-          <input type='password' name='password' />
-        </div>
-        <button type='submit'>Log in</button>
-      </form>
+    <div className='flex justify-center items-center p-10 bg-laptop bg-cover bg-no-repeat bg-right-top min-h-[85vh]'>
+      <div className='flex flex-col bg-slate-100 rounded-3xl p-10 h-full items-center gap-y-10 font-main text-2xl'>
+        <p className='font-bold text-black italic'>Login</p>
+        <form
+          onSubmit={handleLogin}
+          className='flex flex-col items-center gap-y-5 font-main'
+        >
+          <div className='grid place-items-center'>
+            <p>Username:</p>
+            <input type='text' name='username' className='rounded-2xl px-5' />
+          </div>
+          <div className='grid place-items-center'>
+            <p>Password:</p>
+            <input
+              type='password'
+              name='password'
+              className='rounded-2xl px-5'
+            />
+          </div>
+          <button
+            type='submit'
+            className='bg-primary rounded-full py-3 px-5 hover:bg-secondary-100 transition duration-300 ease-in-out hover:scale-110 hover:rounded-3xl'
+          >
+            Log in
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

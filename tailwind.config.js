@@ -22,6 +22,9 @@ module.exports = {
         pacifico: ["Pacifico"],
         main: ["Source Sans Pro"],
       },
+      backgroundImage: theme => ({
+        laptop: "url('images/register.jpg')",
+      }),
     },
   },
   plugins: [],
