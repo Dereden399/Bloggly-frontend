@@ -24,7 +24,7 @@ const LoginBlank = props => {
 
   return (
     <div className='flex justify-center items-center p-10 bg-laptop bg-cover bg-no-repeat bg-right-top min-h-[85vh]'>
-      <div className='flex flex-col bg-slate-100 rounded-3xl p-10 h-full items-center gap-y-10 font-main text-2xl'>
+      <div className='flex flex-col shadow-2xl bg-slate-100/90 backdrop-blur-sm rounded-3xl py-10 px-1 h-full items-center gap-y-10 font-main text-2xl'>
         <p className='font-bold text-black italic'>Register a new user:</p>
         <form
           onSubmit={submitHandler}
@@ -32,13 +32,23 @@ const LoginBlank = props => {
         >
           <div className='grid place-items-center'>
             <p>Username:</p>
-            <input placeholder='Username' className='rounded-2xl px-5' />
+            <input
+              placeholder='Username'
+              type='text'
+              minLength={3}
+              maxLength={15}
+              required='true'
+              className='rounded-2xl px-5'
+            />
           </div>
           <div className='grid place-items-center'>
             <p>Password:</p>
             <input
               placeholder='Password'
               type='password'
+              minLength={3}
+              maxLength={15}
+              required='true'
               className='rounded-2xl px-5'
             />
           </div>
