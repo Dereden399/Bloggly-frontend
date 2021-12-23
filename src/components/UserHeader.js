@@ -2,6 +2,7 @@ import React from "react"
 import { useNavigate } from "react-router"
 import { logout } from "../reducers/userReducer"
 import { connect } from "react-redux"
+import { LoginIcon, LogoutIcon, UserIcon } from "@heroicons/react/outline"
 
 const UserLoginLogout = props => {
   const nav = useNavigate()
@@ -24,20 +25,33 @@ const UserLoginLogout = props => {
           <b className='text-primaryWhite'>{props.user.username}</b>
         </div>
       )}
-      <div className='flex flex-col gap-y-1'>
+      <div className='flex flex-row md:flex-col gap-x-2 gap-y-1'>
         {props.user.username && (
           <div>
             <button
               onClick={() => nav(`/users/${props.user.userId}`)}
               className='btn-navbar'
             >
-              Your profile
+              <p className='hidden md:block'>Your profile</p>
+              <UserIcon className='w-10 h-10 md:hidden' />
             </button>
           </div>
         )}
         <div>
-          <button onClick={handleClick} className='btn-navbar'>
-            {!props.user.username ? "Log in" : "Log out"}
+          <button
+            onClick={handleClick}
+            className='btn-navbar grid place-items-center'
+          >
+            {!props.user.username ? (
+              <p className='hidden md:block'>Log in</p>
+            ) : (
+              <p className='hidden md:block'>Log out</p>
+            )}
+            {!props.user.username ? (
+              <LoginIcon className='w-10 h-10 md:hidden' />
+            ) : (
+              <LogoutIcon className='w-10 h-10 md:hidden' />
+            )}
           </button>
         </div>
       </div>

@@ -9,5 +9,5 @@
   @apply bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1;
 }
 .btn-navbar-dropdown {
-  @apply bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1 w-full items-center text-center lg:w-auto;
+  @apply bg-primaryWhite hover:bg-secondaryWhite rounded-full font-bold px-1 w-full items-center text-center md:w-auto;
 }

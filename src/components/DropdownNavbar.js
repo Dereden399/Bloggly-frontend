@@ -6,7 +6,7 @@ const DropdownNavbar = ({ isOpen, toggle }) => {
     <div
       className={
         isOpen
-          ? "bg-secondary-500 flex lg:flex-row lg:gap-x-3 px-6 lg:h-10 items-center flex-col gap-y-2"
+          ? "bg-secondary-500 flex md:flex-row md:gap-x-3 px-6 py-1 md:h-10 items-center flex-col gap-y-2"
           : "hidden"
       }
       onClick={toggle}

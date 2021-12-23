@@ -38,7 +38,7 @@ const App = () => {
   return (
     <>
       <DropdownNavbar isOpen={isOpen} toggle={toggle} />
-      <NavigationBar toggle={toggle} />
+      <NavigationBar toggle={toggle} isOpen={isOpen} />
       <Notification />
       <Routes>
         <Route path='/blogs/:id' element={<Blog />} />
