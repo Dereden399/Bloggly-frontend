@@ -24,6 +24,7 @@ module.exports = {
       },
       backgroundImage: theme => ({
         laptop: "url('images/register.jpg')",
+        books: "url('images/books.jpg')",
       }),
     },
   },
