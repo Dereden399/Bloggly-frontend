@@ -20,8 +20,8 @@ const BlogPreview = ({ blog }) => (
 const BlogList = props => {
   return (
     <div className='bg-books min-h-[85vh] bg-cover bg-no-repeat py-2 px-1'>
-      <div className='bg-slate-100/80 backdrop-blur-xl rounded-3xl px-1 py-2 grid grid-rows-2 place-items-center shadow-2xl'>
-        <p className='font-bold italic font-pacifico text-5xl text-primary border-b-2 border-slate-500/80'>
+      <div className='bg-slate-100/80 backdrop-blur-xl rounded-3xl px-1 py-2 flex flex-col items-center shadow-2xl'>
+        <p className='font-bold italic font-pacifico text-5xl text-primary border-b-2 border-slate-500/80 my-10'>
           Blog's feed
         </p>
         <div className='place-self-start w-full flex flex-col items-center gap-y-2'>
