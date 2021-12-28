@@ -59,7 +59,7 @@ const BlogForm = props => {
           </div>
           <button
             type='submit'
-            className='place-self-end bg-primary rounded-full py-3 px-5 hover:bg-secondary-100 transition duration-300 ease-in-out hover:scale-110 hover:rounded-3xl'
+            className='place-self-end bg-primary rounded-full py-3 px-5 mx-2 hover:bg-secondary-100 transition duration-300 ease-in-out hover:scale-110 hover:rounded-3xl'
           >
             Add blog
           </button>
