@@ -29,6 +29,7 @@ module.exports = {
       animation: {
         alertEnd: "alertEnd 0.5s linear",
         alertStart: "alertStart 0.2s ease-in-out",
+        reverseSpin: "reverseSpin 1s linear infinite",
       },
       keyframes: {
         alertEnd: {
@@ -40,6 +41,11 @@ module.exports = {
           "60%": { transform: "scale(1.3)", opacity: 0.9 },
           "80%": { transform: "scale(1.3)", opacity: 0.9 },
           "100%": { transform: "scale(1)", opacity: 1 },
+        },
+        reverseSpin: {
+          from: {
+            transform: "rotate(360deg)",
+          },
         },
       },
     },

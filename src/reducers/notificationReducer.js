@@ -27,11 +27,21 @@ export const makeNotification = (message, type, duration = 3) => {
       data: { message, type, shouldEnd: false },
     })
     const newTimer = setTimeout(() => {
-      dispatch({ type: "toggleEnd" })
-      const endTime = setTimeout(() => dispatch({ type: "REMOVE_NOT" }), 400)
-      window.localStorage.setItem("endTime", endTime)
+      window.localStorage.removeItem("nowTimer")
+      dispatch(removeNotification())
     }, duration * 1000 - 400)
     window.localStorage.setItem("nowTimer", newTimer)
+  }
+}
+
+export const removeNotification = () => {
+  return async dispatch => {
+    dispatch({ type: "toggleEnd" })
+    const endTime = setTimeout(() => {
+      dispatch({ type: "REMOVE_NOT" })
+      window.localStorage.removeItem("endTime")
+    }, 400)
+    window.localStorage.setItem("endTime", endTime)
   }
 }
 

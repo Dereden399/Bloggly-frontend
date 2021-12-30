@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import userSerices from "../Services/userServices"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
-import { BookOpenIcon, ThumbUpIcon } from "@heroicons/react/solid"
+import { RefreshIcon, ThumbUpIcon } from "@heroicons/react/solid"
 
 const BlogPreview = ({ blog }) => (
   <Link
@@ -28,8 +28,23 @@ const UserPage = props => {
       .then(data => setUser(data))
       .catch(error => setUser(error.response.status))
   }, [id])
-  if (!user) return <h1>Loading...</h1>
-  if (user === 404) return <h1>No such user here...</h1>
+  if (!user)
+    return (
+      <div className='grid grid-rows-1 justify-center items-center h-[80vh]'>
+        <div className='font-main font-bold text-5xl flex flex-row items-center'>
+          <RefreshIcon className='w-16 h-16 animate-reverseSpin' />
+          <p>Loading...</p>
+        </div>
+      </div>
+    )
+  if (user === 404)
+    return (
+      <div className='grid grid-rows-1 justify-center items-center h-[80vh]'>
+        <p className='font-main font-bold text-5xl'>
+          No such user here.... But you can invite one!
+        </p>
+      </div>
+    )
   const bestBlog = user.blogs.sort((prev, now) => now.likes - prev.likes)[0]
   console.log(user)
   return (

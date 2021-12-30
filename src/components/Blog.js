@@ -35,8 +35,10 @@ const Blog = props => {
 
   if (!blog)
     return (
-      <div>
-        <h1>Whoops, It seems, that we don't have this blog(</h1>
+      <div className='grid grid-rows-1 justify-center items-center h-[80vh]'>
+        <p className='font-main font-bold text-5xl'>
+          Whoops, It seems, that we don't have this blog
+        </p>
       </div>
     )
 
@@ -95,19 +97,17 @@ const Blog = props => {
           <div className='bg-gradient-to-b from-secondary-300 to-secondary-400 w-full p-1 rounded-b-2xl backdrop-blur-2xl'>
             <div className='flex flex-col items-center'>
               <CommentForm user={user} commentHandler={addComment} />
-              <div>
-                Comments:
-                {blog.comments !== [] ? (
-                  blog.comments.map(com => (
-                    <div>
-                      <i>{com}</i>
-                    </div>
-                  ))
-                ) : (
-                  <div>
-                    <b>This blog has not any comments yet</b>
-                  </div>
-                )}
+              <div className='h-auto max-h-32 w-60 flex flex-col items-start'>
+                <p className='self-center'>Comments:</p>
+                <div className='overflow-y-auto w-full'>
+                  {blog.comments.length > 0 ? (
+                    blog.comments.map(com => <p className='italic'>{com}</p>)
+                  ) : (
+                    <p className='font-bold'>
+                      This blog has not any comments yet
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           </div>

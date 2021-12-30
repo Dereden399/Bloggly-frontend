@@ -14,6 +14,7 @@ import Notification from "./components/Notification"
 import UserPage from "./components/UserPage"
 import UsersList from "./components/AllUsersList"
 import RegisterBlank from "./components/RegisterBlank"
+import NothingPage from "./components/404Page"
 
 import { initializeBlogs } from "./reducers/blogsReducer"
 import { checkUser } from "./reducers/userReducer"
@@ -50,7 +51,7 @@ const App = () => {
         <Route path='/users' element={<UsersList />} />
         <Route path='/register' element={<RegisterBlank />} />
         <Route path='/' element={<MainPage />} />
-        <Route path='*' element={<div>Nothing up here... Yet</div>} />
+        <Route path='*' element={<NothingPage />} />
       </Routes>
       <Footer />
     </>
